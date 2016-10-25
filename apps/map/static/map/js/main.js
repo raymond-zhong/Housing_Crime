@@ -6,18 +6,25 @@ $(document).ready(function(){
     //     alert('hi');
     // }, "json");
 
+    //BEGIN QUERY FOR ASSAULT CRIMES
     var consumer = new soda.Consumer("data.sfgov.org");
     consumer.query()
         .withDataset('cuks-n6tp')
-        .limit(100)
+        .where({category: 'ASSAULT',})
+        .order('date desc')
+        .limit(1000)
         .getRows()
             .on('success', function(rows){
-                for(var j=0; j <rows.length; j++)
-                    for(var i in rows)
-                        console.log(rows[i]);
+                var cats = [];
+                for(var i in rows)
+                {
+                    //EACH ROW MAKE A MARKER
+                    console.log(rows[i]['descript']);
+                }
+                console.log(rows.length);
             })
             .on('error', function(error){console.log(error);});
-
+    //END QUERY ASSAULT
 
     var mapOptions = {
         center: new google.maps.LatLng(37.3382,-121.8863),

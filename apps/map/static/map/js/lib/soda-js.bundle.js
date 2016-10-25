@@ -3054,7 +3054,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
  * TODO: combatible error handling?
  */
 
-module.exports = function(arr, fn, initial){  
+module.exports = function(arr, fn, initial){
   var idx = 0;
   var len = arr.length;
   var curr = arguments.length == 3
@@ -3064,7 +3064,7 @@ module.exports = function(arr, fn, initial){
   while (idx < len) {
     curr = fn.call(null, curr, arr[idx], ++idx, arr);
   }
-  
+
   return curr;
 };
 },{}],9:[function(require,module,exports){
@@ -3364,8 +3364,8 @@ function Response(req, options) {
   options = options || {};
   this.req = req;
   this.xhr = this.req.xhr;
-  this.text = this.req.method !='HEAD' 
-     ? this.xhr.responseText 
+  this.text = this.req.method !='HEAD'
+     ? this.xhr.responseText
      : null;
   this.setStatusProperties(this.xhr.status);
   this.header = this.headers = parseHeader(this.xhr.getAllResponseHeaders());
@@ -3526,7 +3526,7 @@ function Request(method, url) {
     var res = null;
 
     try {
-      res = new Response(self); 
+      res = new Response(self);
     } catch(e) {
       err = new Error('Parser is unable to parse the response');
       err.parse = true;
