@@ -15,7 +15,7 @@ $(document).ready(function(){
             .withDataset('cuks-n6tp')
             .where({category: categories[j],})
             .order('date desc')
-            .limit(100)
+            .limit(20)
             .getRows()
                 .on('success', function(rows){
                     for(var i in rows)
@@ -30,6 +30,20 @@ $(document).ready(function(){
                              map: map,
                             icon:'static/images/crimes/' + rows[i]['category'] + '.png'
                             });
+                            var disc = '<h4>'+ rows[i]['descript'] +'</h4>';
+                            var infowindow = new google.maps.InfoWindow();
+
+                            google.maps.event.addListener(assaultMarker,'click', (function(assaultMarker,disc,infowindow){
+                              return function() {
+                                infowindow.setContent(disc);
+                                infowindow.open(map,assaultMarker);
+                              };
+                            })(assaultMarker,disc,infowindow));
+
+                            assaultMarker.addListener('click', function() {
+                              infowindow.open(map, assaultMarker);
+                    });
+
                         }
 
                     }
