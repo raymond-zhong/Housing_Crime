@@ -8,29 +8,35 @@ $(document).ready(function(){
 
     //BEGIN QUERY FOR ASSAULT CRIMES
     var consumer = new soda.Consumer("data.sfgov.org");
-    consumer.query()
-        .withDataset('cuks-n6tp')
-        .where({category: 'FAMILY OFFENSES',})
-        .order('date desc')
-        .limit(1000)
-        .getRows()
-            .on('success', function(rows){
-                var cats = [];
-                for(var i in rows)
-                {
-                    //EACH ROW MAKE A MARKER
-                  var latLng = new google.maps.LatLng(rows[i]['y'], rows[i]['x']);
-                   // console.log(rows[i]['x'], rows[i]['y']);
-                   var assaultMarker = new google.maps.Marker({
-                     position: latLng,
-                     map: map,
-                    icon:'static/images/crimes/shooting.png'
-                   });
+    var categories = ['ASSAULT', 'SEX OFFENSES, FORCIBLE', 'KIDNAPPING', 'ARSON'];
+    for(var j=0; j < 4; j++)
+    {
+        console.log(categories[j]);
+        consumer.query()
+            .withDataset('cuks-n6tp')
+            .where({category: categories[j],})
+            .order('date desc')
+            .limit(100)
+            .getRows()
+                .on('success', function(rows){
+                    for(var i in rows)
+                    {
+                        if(rows[i]['date'].search('2016-') != -1)
+                        {
+                            //EACH ROW MAKE A MARKER
+                            var latLng = new google.maps.LatLng(rows[i]['y'], rows[i]['x']);
+                            // console.log(rows[i]['x'], rows[i]['y']);
+                            var assaultMarker = new google.maps.Marker({
+                             position: latLng,
+                             map: map,
+                            icon:'static/images/crimes/' + rows[i]['category'] + '.png'
+                            });
+                        }
 
-                }
-                console.log(rows.length);
-            })
-            .on('error', function(error){console.log(error);});
+                    }
+                })
+                .on('error', function(error){console.log(error);});
+    }
     //END QUERY ASSAULT
 
     var mapInit = {
