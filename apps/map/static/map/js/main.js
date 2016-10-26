@@ -19,47 +19,65 @@ $(document).ready(function(){
                 for(var i in rows)
                 {
                     //EACH ROW MAKE A MARKER
-                    console.log(rows[i]['descript']);
+                  var latLng = new google.maps.LatLng(rows[i]['y'], rows[i]['x']);
+                   // console.log(rows[i]['x'], rows[i]['y']);
+                   var assaultMarker = new google.maps.Marker({
+                     position: latLng,
+                     map: map,
+                    icon:'static/images/crimes/shooting.png'
+                   });
+
                 }
                 console.log(rows.length);
             })
             .on('error', function(error){console.log(error);});
     //END QUERY ASSAULT
 
-    var mapOptions = {
-        center: new google.maps.LatLng(37.3382,-121.8863),
-        zoom: 12,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
+    var mapInit = {
+   center: new google.maps.LatLng(37.773972, -122.431297),
+   zoom: 12,
+   mapTypeId: google.maps.MapTypeId.TERRAIN,
+};
+var map = new google.maps.Map(document.getElementById('map'), mapInit);
 
-    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    var acOptions = {
-      types: ['establishment']
-    };
-    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'),acOptions);
-    autocomplete.bindTo('bounds',map);
-    var infoWindow = new google.maps.InfoWindow();
-    var marker = new google.maps.Marker({
-      map: map
-    });
 
-    google.maps.event.addListener(autocomplete, 'place_changed', function() {
-      infoWindow.close();
-      var place = autocomplete.getPlace();
-      if (place.geometry.viewport) {
-        map.fitBounds(place.geometry.viewport);
-      } else {
-        map.setCenter(place.geometry.location);
-        map.setZoom(17);
-      }
-      marker.setPosition(place.geometry.location);
-      infoWindow.setContent('<div><strong>' + place.name + '</strong><br>');
-      infoWindow.open(map, marker);
-      google.maps.event.addListener(marker,'click',function(e){
+var marker;
 
-        infoWindow.open(map, marker);
+var circle = new google.maps.Circle({
+    strokeColor: '#4285F4 ',
+    strokeOpacity: 0.3,
+    strokeWeight: 3,
+    fillColor: '#4285F4 ',
+    fillOpacity: 0.35,
+    map: map,
+    radius: 1000
+  });
 
-      });
-    });
+
+
+
+map.addListener('click', function(event) {
+ deleteMarkers();
+ addMarker(event.latLng);
+ circle.bindTo('center', marker, 'position');
+});
+
+
+
+function addMarker(location) {
+marker = new google.maps.Marker({
+   position: location,
+   map: map,
+   animation: google.maps.Animation.DROP,
+   //icon:'static/images/house.png'
+ });
+}
+
+function deleteMarkers() {
+ if (marker){
+   marker.setMap(null)
+   marker = null
+ }
+}
 
 })
