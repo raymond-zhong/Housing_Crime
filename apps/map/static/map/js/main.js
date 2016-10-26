@@ -57,7 +57,7 @@ $(document).ready(function(){
                               infowindow.open(map, crimeMarker);
                             });
                             var key = rows[i]['category']
-                            dict[key].push(5);
+                            dict[key].push(crimeMarker);
 
                         }
 
