@@ -9,9 +9,8 @@ $(document).ready(function(){
     //BEGIN QUERY FOR ASSAULT CRIMES
     var consumer = new soda.Consumer("data.sfgov.org");
     var categories = ['ASSAULT', 'SEX OFFENSES, FORCIBLE', 'KIDNAPPING', 'ARSON'];
-    for(var j=0; j < 4; j++)
+    for(var j=0; j < categories.length; j++)
     {
-        console.log(categories[j]);
         consumer.query()
             .withDataset('cuks-n6tp')
             .where({category: categories[j],})
