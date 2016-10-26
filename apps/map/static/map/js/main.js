@@ -10,7 +10,7 @@ $(document).ready(function(){
     var consumer = new soda.Consumer("data.sfgov.org");
     consumer.query()
         .withDataset('cuks-n6tp')
-        .where({category: 'ASSAULT',})
+        .where({category: 'FAMILY OFFENSES',})
         .order('date desc')
         .limit(1000)
         .getRows()
