@@ -1,3 +1,11 @@
+// var categories = ['ASSAULT', 'SEX OFFENSES, FORCIBLE', 'KIDNAPPING', 'ARSON'];
+// var dict = new Array();
+// for(var j=0; j < categories.length; j++)
+// {
+//     dict[categories[j]] = [1,];
+//     dict[categories[j]].push(2);
+// }
+
 $(document).ready(function(){
 
     // $.get("https://data.sfgov.org/resource/cuks-n6tp.json", function(res){
@@ -6,9 +14,14 @@ $(document).ready(function(){
     //     alert('hi');
     // }, "json");
 
-    //BEGIN QUERY FOR ASSAULT CRIMES
-    var consumer = new soda.Consumer("data.sfgov.org");
+    //BEGIN QUERY FOR CRIMES
     var categories = ['ASSAULT', 'SEX OFFENSES, FORCIBLE', 'KIDNAPPING', 'ARSON'];
+    var dict = new Array();
+    for(var j=0; j < categories.length; j++)
+    {
+        dict[categories[j]] = [];
+    }
+    var consumer = new soda.Consumer("data.sfgov.org");
     for(var j=0; j < categories.length; j++)
     {
         consumer.query()
@@ -25,7 +38,7 @@ $(document).ready(function(){
                             //EACH ROW MAKE A MARKER
                             var latLng = new google.maps.LatLng(rows[i]['y'], rows[i]['x']);
                             // console.log(rows[i]['x'], rows[i]['y']);
-                            var assaultMarker = new google.maps.Marker({
+                            var crimeMarker = new google.maps.Marker({
                              position: latLng,
                              map: map,
                             icon:'static/images/crimes/' + rows[i]['category'] + '.png'
@@ -33,16 +46,18 @@ $(document).ready(function(){
                             var disc = '<h4>'+ rows[i]['descript'] +'</h4>';
                             var infowindow = new google.maps.InfoWindow();
 
-                            google.maps.event.addListener(assaultMarker,'click', (function(assaultMarker,disc,infowindow){
+                            google.maps.event.addListener(crimeMarker,'click', (function(crimeMarker,disc,infowindow){
                               return function() {
                                 infowindow.setContent(disc);
-                                infowindow.open(map,assaultMarker);
+                                infowindow.open(map,crimeMarker);
                               };
-                            })(assaultMarker,disc,infowindow));
+                            })(crimeMarker,disc,infowindow));
 
-                            assaultMarker.addListener('click', function() {
-                              infowindow.open(map, assaultMarker);
-                    });
+                            crimeMarker.addListener('click', function() {
+                              infowindow.open(map, crimeMarker);
+                            });
+                            var key = rows[i]['category']
+                            dict[key].push(5);
 
                         }
 
@@ -51,7 +66,10 @@ $(document).ready(function(){
                 .on('error', function(error){console.log(error);});
     }
     //END QUERY ASSAULT
-
+    for(var j=0; j < categories.length; j++)
+    {
+        console.log(categories[j] + ": " + dict[categories[j]]);
+    }
     var mapInit = {
    center: new google.maps.LatLng(37.773972, -122.431297),
    zoom: 12,
