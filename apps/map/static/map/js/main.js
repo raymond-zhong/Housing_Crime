@@ -27,7 +27,7 @@ $.get("home", function(res){
     dict["houses"].push(houseMarker);
     price = price.replace(/,/g, "");
     price = price.replace('$', "");
-    // console.log(price);
+     console.log(price);
     dict['hprices'].push(parseInt(price));
     }
 }, "json");
