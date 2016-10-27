@@ -7,7 +7,31 @@ html, body, #map {
   width: 100%;
   height: 25px;
 }
-
+#map{
+  width: 900px;
+  display: inline-block;
+}
+.button{
+  width: 200px;
+  display: inline-block;
+  vertical-align: top;
+}
 h1{
-  color: green;
+  color: blue;
+}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+/* Full height image header */
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("/w3images/tablet_pen.jpg");
+    min-height: 100%;
+}
+.w3-navbar li a {
+    padding: 16px;
+    float: left;
 }

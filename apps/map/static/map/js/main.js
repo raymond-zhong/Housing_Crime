@@ -6,19 +6,24 @@ for(var j=0; j < categories.length; j++)
     dict[categories[j]] = [];
 }
 dict["houses"] = [];
+dict["rent"] = [];
+dict["condo"] = [];
 $(document).ready(function(){
 var geocoder = new google.maps.Geocoder();
 $.get("home", function(res){
   console.log(res.length);
   for(var i =0; i<res.length; i++){
 
-    var address = res[i].Address;
+    // var address = res[i].Address + ", San Francisco, CA";
+    var x = res[i].x;
+    var y = res[i].y;
     var price = res[i].Price;
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        var hlat = results[0].geometry.location.lat();
-        var hlong = results[0].geometry.location.lng();
-        var hlatLng = new google.maps.LatLng(hlat, hlong);
+    // geocoder.geocode( { 'address': address}, function(results, status) {
+    //   if (status == google.maps.GeocoderStatus.OK) {
+    //     var hlat = results[0].geometry.location.lat();
+    //     var hlong = results[0].geometry.location.lng();
+    //     var hlatLng = new google.maps.LatLng(hlat, hlong);
+    var hlatLng = new google.maps.LatLng(x, y);
         // console.log(rows[i]['x'], rows[i]['y']);
         var houseMarker = new google.maps.Marker({
           position: hlatLng,
@@ -27,10 +32,43 @@ $.get("home", function(res){
         });
         dict["houses"].push(houseMarker);
         }
-      });
-  }
+      // });
+  // }
 }, "json");
-
+$.get("rent", function(res){
+  for(var i =0; i<res.length; i++){
+    var x = res[i].x;
+    var y = res[i].y;
+    var price = res[i].Price;
+    var hlatLng = new google.maps.LatLng(x, y);
+        // console.log(rows[i]['x'], rows[i]['y']);
+        var rentMarker = new google.maps.Marker({
+          position: hlatLng,
+          map: map,
+          icon:'static/images/houses/rent.png'
+        });
+        dict["rent"].push(rentMarker);
+        }
+      // });
+  // }
+}, "json");
+$.get("condo", function(res){
+  for(var i =0; i<res.length; i++){
+    var x = res[i].x;
+    var y = res[i].y;
+    var price = res[i].Price;
+    var hlatLng = new google.maps.LatLng(x, y);
+        // console.log(rows[i]['x'], rows[i]['y']);
+        var condoMarker = new google.maps.Marker({
+          position: hlatLng,
+          map: map,
+          icon:'static/images/houses/condo.png'
+        });
+        dict["condo"].push(condoMarker);
+        }
+      // });
+  // }
+}, "json");
   // $.get("https://data.sfgov.org/resource/cuks-n6tp.json", function(res){
   //     console.log("in function");
   //     console.log(res);
@@ -209,5 +247,82 @@ $.get("home", function(res){
       circle.setMap(null)
     }
   }
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    }
+  }
 
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '1811471909131716',
+    cookie     : true,  // enable cookies to allow the server to access
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.5' // use graph api version 2.5
+  });
+
+  // Now that we've initialized the JavaScript SDK, we call
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
 });
