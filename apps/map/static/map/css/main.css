@@ -1,3 +1,4 @@
+{% load staticfiles %}
 html, body, #map {
   height: 100%;
   margin: 0;
@@ -25,13 +26,20 @@ body, html {
     line-height: 1.8;
 }
 /* Full height image header */
+.w3-top{
+  background: white;
+}
 .bgimg-1 {
     background-position: center;
     background-size: cover;
-    background-image: url("/w3images/tablet_pen.jpg");
+    background-image: url("hs.jpeg");
     min-height: 100%;
 }
 .w3-navbar li a {
     padding: 16px;
     float: left;
+    font-size: 1.25em;
+}
+#about{
+  padding: 10px;
 }
