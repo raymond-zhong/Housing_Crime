@@ -1,10 +1,9 @@
-// var categories = ['ASSAULT', 'SEX OFFENSES, FORCIBLE', 'KIDNAPPING', 'ARSON'];
-// var dict = new Array();
-// for(var j=0; j < categories.length; j++)
-// {
-//     dict[categories[j]] = [1,];
-//     dict[categories[j]].push(2);
-// }
+var categories = ['ASSAULT', 'SEX OFFENSES, FORCIBLE', 'KIDNAPPING', 'ARSON'];
+var dict = new Array();
+for(var j=0; j < categories.length; j++)
+{
+    dict[categories[j]] = [];
+}
 
 $(document).ready(function(){
 
@@ -15,12 +14,12 @@ $(document).ready(function(){
     // }, "json");
 
     //BEGIN QUERY FOR CRIMES
-    var categories = ['ASSAULT', 'SEX OFFENSES, FORCIBLE', 'KIDNAPPING', 'ARSON'];
-    var dict = new Array();
-    for(var j=0; j < categories.length; j++)
-    {
-        dict[categories[j]] = [];
-    }
+    // var categories = ['ASSAULT', 'SEX OFFENSES, FORCIBLE', 'KIDNAPPING', 'ARSON'];
+    // var dict = new Array();
+    // for(var j=0; j < categories.length; j++)
+    // {
+    //     dict[categories[j]] = [];
+    // }
     var consumer = new soda.Consumer("data.sfgov.org");
     for(var j=0; j < categories.length; j++)
     {
@@ -156,6 +155,15 @@ function deleteMarker() {
    marker = null
    circle.setMap(null)
  }
-}
+};
+
+$('#assault').click(function(){
+    for(j = 0; j < dict['ASSAULT'].length; j++)
+    {
+        console.log(dict['ASSAULT'][j]);
+    }
+    console.log('assault clicked');
+});
+
 
 })
