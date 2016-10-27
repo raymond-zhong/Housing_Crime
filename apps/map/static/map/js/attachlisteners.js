@@ -58,5 +58,63 @@ $(document).ready(function(){
             }
         }
     });
+//
+$('#sfhome').click(function(){
+    if($('#sfhome').is(':checked'))
+        for(j = 0; j < dict['houses'].length; j++)
+        {
+            dict['houses'][j].setVisible(true);
+        }
+    else
+    {
+        for(j = 0; j < dict['houses'].length; j++)
+        {
+            dict['houses'][j].setVisible(false);
+        }
+    }
+});
 
+$('#rent').click(function(){
+    if($('#rent').is(':checked'))
+        for(j = 0; j < dict['rent'].length; j++)
+        {
+            dict['rent'][j].setVisible(true);
+        }
+    else
+    {
+        for(j = 0; j < dict['rent'].length; j++)
+        {
+            dict['rent'][j].setVisible(false);
+        }
+    }
+});
+$('#condo').click(function(){
+    if($('#condo').is(':checked'))
+        for(j = 0; j < dict['condo'].length; j++)
+        {
+            dict['condo'][j].setVisible(true);
+        }
+    else
+    {
+        for(j = 0; j < dict['condo'].length; j++)
+        {
+            dict['condo'][j].setVisible(false);
+        }
+    }
+});
+//
+// $('#kidnapping').click(function(){
+//     if($('#kidnapping').is(':checked'))
+//         for(j = 0; j < dict['KIDNAPPING'].length; j++)
+//         {
+//             dict['KIDNAPPING'][j].setVisible(true);
+//         }
+//     else
+//     {
+//         for(j = 0; j < dict['KIDNAPPING'].length; j++)
+//         {
+//             dict['KIDNAPPING'][j].setVisible(false);
+//         }
+//     }
+// });
 })
