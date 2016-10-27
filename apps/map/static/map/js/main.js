@@ -1,11 +1,35 @@
 var categories = ['ASSAULT', 'SEX OFFENSES, FORCIBLE', 'KIDNAPPING', 'ARSON'];
 var dict = new Array();
+
 for(var j=0; j < categories.length; j++)
 {
     dict[categories[j]] = [];
 }
-
+dict["houses"] = [];
 $(document).ready(function(){
+var geocoder = new google.maps.Geocoder();
+$.get("home", function(res){
+  console.log(res.length);
+  for(var i =0; i<res.length; i++){
+
+    var address = res[i].Address;
+    var price = res[i].Price;
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        var hlat = results[0].geometry.location.lat();
+        var hlong = results[0].geometry.location.lng();
+        var hlatLng = new google.maps.LatLng(hlat, hlong);
+        // console.log(rows[i]['x'], rows[i]['y']);
+        var houseMarker = new google.maps.Marker({
+          position: hlatLng,
+          map: map,
+          icon:'static/images/houses/house.png'
+        });
+        dict["houses"].push(houseMarker);
+        }
+      });
+  }
+}, "json");
 
   // $.get("https://data.sfgov.org/resource/cuks-n6tp.json", function(res){
   //     console.log("in function");
@@ -29,6 +53,7 @@ $(document).ready(function(){
         if(rows[i]['date'].search('2016-') != -1)
         {
           //EACH ROW MAKE A MARKER
+          console.log(typeof(rows[i]['y']));
           var latLng = new google.maps.LatLng(rows[i]['y'], rows[i]['x']);
           // console.log(rows[i]['x'], rows[i]['y']);
           var crimeMarker = new google.maps.Marker({
@@ -71,8 +96,7 @@ $(document).ready(function(){
           //   infowindow.open(map, crimeMarker);
           // });
 
-          var key = rows[i]['category']
-          dict[key].push(crimeMarker);
+          dict[rows[i]['category']].push(crimeMarker);
 
         }
 

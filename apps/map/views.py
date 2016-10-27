@@ -9,3 +9,5 @@ def index(request):
         # "descriptions" : Description.objects.all()
     }
     return render(request, 'map/index.html', context)
+def home(request):
+    return render(request, 'map/home.json')
