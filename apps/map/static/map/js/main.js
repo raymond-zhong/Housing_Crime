@@ -8,66 +8,71 @@ for(var j=0; j < categories.length; j++)
 dict["houses"] = [];
 dict["rent"] = [];
 dict["condo"] = [];
+dict["hprices"] = [];
+dict["rprices"] = [];
+dict['cprices'] = [];
 $(document).ready(function(){
 var geocoder = new google.maps.Geocoder();
 $.get("home", function(res){
-  console.log(res.length);
   for(var i =0; i<res.length; i++){
+    var x = res[i].x;
+    var y = res[i].y;
+    var price = res[i].Price;
+    var hlatLng = new google.maps.LatLng(x, y);
+    var houseMarker = new google.maps.Marker({
+      position: hlatLng,
+      map: map,
+      icon:'static/images/houses/house.png'
+    });
+    dict["houses"].push(houseMarker);
+    price = price.replace(/,/g, "");
+    price = price.replace('$', "");
+    // console.log(price);
+    dict['hprices'].push(parseInt(price));
+    }
+}, "json");
 
-    // var address = res[i].Address + ", San Francisco, CA";
-    var x = res[i].x;
-    var y = res[i].y;
-    var price = res[i].Price;
-    // geocoder.geocode( { 'address': address}, function(results, status) {
-    //   if (status == google.maps.GeocoderStatus.OK) {
-    //     var hlat = results[0].geometry.location.lat();
-    //     var hlong = results[0].geometry.location.lng();
-    //     var hlatLng = new google.maps.LatLng(hlat, hlong);
-    var hlatLng = new google.maps.LatLng(x, y);
-        // console.log(rows[i]['x'], rows[i]['y']);
-        var houseMarker = new google.maps.Marker({
-          position: hlatLng,
-          map: map,
-          icon:'static/images/houses/house.png'
-        });
-        dict["houses"].push(houseMarker);
-        }
-      // });
-  // }
-}, "json");
 $.get("rent", function(res){
-  for(var i =0; i<res.length; i++){
+  for(var i =0; i<res.length; i++)
+  {
     var x = res[i].x;
     var y = res[i].y;
     var price = res[i].Price;
     var hlatLng = new google.maps.LatLng(x, y);
-        // console.log(rows[i]['x'], rows[i]['y']);
-        var rentMarker = new google.maps.Marker({
-          position: hlatLng,
-          map: map,
-          icon:'static/images/houses/rent.png'
-        });
-        dict["rent"].push(rentMarker);
-        }
-      // });
-  // }
+    // console.log(rows[i]['x'], rows[i]['y']);
+    var rentMarker = new google.maps.Marker({
+      position: hlatLng,
+      map: map,
+      icon:'static/images/houses/rent.png'
+    });
+    dict["rent"].push(rentMarker);
+    price = price.replace(',', "");
+    price = price.replace('$', "");
+    price = price.replace('/mo', "");
+    // console.log(price);
+    dict['rprices'].push(parseInt(price));
+  }
 }, "json");
+
 $.get("condo", function(res){
-  for(var i =0; i<res.length; i++){
+  for(var i =0; i<res.length; i++)
+  {
     var x = res[i].x;
     var y = res[i].y;
     var price = res[i].Price;
     var hlatLng = new google.maps.LatLng(x, y);
-        // console.log(rows[i]['x'], rows[i]['y']);
-        var condoMarker = new google.maps.Marker({
-          position: hlatLng,
-          map: map,
-          icon:'static/images/houses/condo.png'
-        });
-        dict["condo"].push(condoMarker);
-        }
-      // });
-  // }
+    // console.log(rows[i]['x'], rows[i]['y']);
+    var condoMarker = new google.maps.Marker({
+      position: hlatLng,
+      map: map,
+      icon:'static/images/houses/condo.png'
+    });
+    dict["condo"].push(condoMarker);
+    price = price.replace(/,/g, "");
+    price = price.replace('$', "");
+    // console.log(price);
+    dict['cprices'].push(parseInt(price));
+  }
 }, "json");
   // $.get("https://data.sfgov.org/resource/cuks-n6tp.json", function(res){
   //     console.log("in function");
@@ -91,7 +96,6 @@ $.get("condo", function(res){
         if(rows[i]['date'].search('2016-') != -1)
         {
           //EACH ROW MAKE A MARKER
-          console.log(typeof(rows[i]['y']));
           var latLng = new google.maps.LatLng(rows[i]['y'], rows[i]['x']);
           // console.log(rows[i]['x'], rows[i]['y']);
           var crimeMarker = new google.maps.Marker({
@@ -143,10 +147,6 @@ $.get("condo", function(res){
     .on('error', function(error){console.log(error);});
   }
   //END QUERY ASSAULT
-  for(var j=0; j < categories.length; j++)
-  {
-    console.log(categories[j] + ": " + dict[categories[j]]);
-  }
 
 
 
@@ -249,8 +249,6 @@ $.get("condo", function(res){
   }
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
