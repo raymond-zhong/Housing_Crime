@@ -21,7 +21,7 @@ $(document).ready(function(){
     .withDataset('cuks-n6tp')
     .where({category: categories[j],})
     .order('date desc')
-    .limit(20)
+    .limit(100)
     .getRows()
     .on('success', function(rows){
       for(var i in rows)
@@ -173,7 +173,7 @@ $(document).ready(function(){
       animation: google.maps.Animation.DROP
       //icon:'static/images/house.png'
     });
-    map.setZoom(16);
+    map.setZoom(15);
     map.panTo(marker.position);
 
   };
@@ -185,13 +185,5 @@ $(document).ready(function(){
       circle.setMap(null)
     }
   }
-
-  $('#assault').click(function(){
-      for(j = 0; j < dict['ASSAULT'].length; j++)
-      {
-          console.log(dict['ASSAULT'][j]);
-      }
-      console.log('assault clicked');
-  });
 
 });
