@@ -30,7 +30,7 @@
       <a href="#about">REAL TIME MAP</a>
       <a href="#team">TEAM</a>
       <a href="#work">OTHER RESOURCES</a>
-      <a href="#pricing">PRESS</a>
+      <!-- <a href="#pricing">PRESS</a> -->
       <a href="#contact">CONTACT</a>
     </li>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
@@ -48,18 +48,17 @@
   <a href="#about">REAL TIME MAP</a>
   <a href="#team">TEAM</a>
   <a href="#work">OTHER RESOURCES</a>
-  <a href="#pricing">PRESS</a>
+  <!-- <a href="#pricing">PRESS</a> -->
   <a href="#contact">CONTACT</a>
 </nav>
 
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
   <div class="w3-display-left w3-padding-xxlarge w3-text-black">
-    <span class="w3-jumbo w3-hide-small">Just trust us</span><br>
-    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Just trust us</span><br>
+    <span class="w3-jumbo w3-hide-small">The REAL Deal.</span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium">The REAL Deal.</span><br>
      <!-- to help you find your information about your future home. -->
-    <span class="w3-xlarge">We can provide you with the information that your agent won't.
-    <p>With real information in REAL TIME, coming straight from the database to you!</p></span>
+    <p><span class="w3-xlarge">We can provide you with the information that your agent won't.</span></p>
     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
     </fb:login-button>
     <div id="status"></div>
@@ -69,22 +68,84 @@
 
 <div id="about">
   </div>
+  <div id="sidepanel">
+  <div id="pad">
+  <!-- TYPE OF RECORD BUTTON -->
+  <div id="dropdown2" class = "dropdown2">
+    <button class="dropbtn2">Type of record</button>
+    <!-- onclick = "myFunction2()" -->
+      <div id = "myDropdown2" class="dropdown-content2">
+        <form class ="button" action="demo_form.asp" >
+          <input type="checkbox" id="assault">Assault<br>
+          <input type="checkbox" id="sexoffense" >Sex Offense<br>
+          <input type="checkbox" id="arson" >Arson<br>
+          <input type="checkbox" id="kidnapping" >Kidnapping<br>
+        <br>
+
+      </form>
+    </div>
+  </div>
+<!-- HOME BUTTON -->
+  <div id="dropdown" class = "dropdown">
+    <button  class="dropbtn">Home Type</button>
+    <!-- onclick = "myFunction()" -->
+      <div id = "myDropdown" class="dropdown-content">
+        <form class ="button" action="demo_form.asp" >
+          <input type="checkbox" id="sfhome" >Single Family Home<br>
+          <input type="checkbox" id="condo" >Condos<br>
+          <input type="checkbox" id="rent" >Rentals<br>
+          <br>
+          Price(Note Rentals are in per month price)
+          <input type="textbox" id="minrange"> to <input type="textbox" id="maxrange">
+          <button type="button" id="filterprice">Filter</button>
+      </form>
+    </div>
+  </div>
+  <script>
+  /* When the user clicks on HOME TYPE button,toggle between hiding and showing the dropdown content */
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+  </script>
+  <script>
+  /* When the user clicks on TYPE OF RECORD  button,toggle between hiding and showing the dropdown content */
+  function myFunction2() {
+    document.getElementById("myDropdown2").classList.toggle("show");
+  }
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn2')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content2");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.contains('show');
+        }
+      }
+    }
+  }
+  </script>
+  <div id="content">
+</div>
+</div>
+</div>
   <div id="map"></div>
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-  <form class ="button" action="demo_form.asp" >
-      <input type="checkbox" id="assault" checked>Assault<br>
-      <input type="checkbox" id="sexoffense" checked>Sex Offense<br>
-      <input type="checkbox" id="arson" checked>Arson<br>
-      <input type="checkbox" id="kidnapping" checked>Kidnapping<br>
-      <br>
-      <input type="checkbox" id="sfhome" checked>Single Family Homes<br>
-      <input type="checkbox" id="condo" checked>Condos<br>
-      <input type="checkbox" id="rent" checked>Rentals<br>
-      <br>
-      Price(Note Rentals are in per month price)
-      <input type="textbox" id="minrange"> to <input type="textbox" id="maxrange">
-      <button type="button" id="filterprice">Filter</button>
-  </form>
+
 
 
 <!-- About Section -->
@@ -152,29 +213,30 @@
         <div class="w3-container">
           <h3>Victor Pak</h3>
           <p class="w3-opacity">Developer</p>
-          <p>Bio...</p>
+          <p>A NICE GUY!</p></br>
           <p><button class="w3-btn-block">Contact</button></p>
         </div>
       </div>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-card-2">
-        <img class="profile" src="static/images/SK.jpg" alt="SK" style="max-height:360px; width:100%">
+        <img class="profile" src="static/images/SK1.jpg" alt="SK" style=" width:100%">
         <div class="w3-container">
           <h3>Soumya Kedlaya</h3>
           <p class="w3-opacity">Developer</p>
-          <p>Bio...</p>
+          <p>Was once a doctor, now a developer</p></br>
           <p><button class="w3-btn-block">Contact</button></p>
         </div>
       </div>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-card-2">
-        <img class="profile" src='static/images/RZ1.jpg' alt="RZ" style="max-height:360px; width:100%">
+        <img class="profile" src='static/images/RZ1.jpg' alt="RZ" style="width:100%">
         <div class="w3-container">
           <h3>Raymond Zhong</h3>
           <p class="w3-opacity">Developer</p>
-          <p>Raymond Zhong is a native of San Francisco who holds a Bachelor of Sciences degree in Construction Management.  For the past few years, he has been working in the construction industry and developed good knowledge of the field. He also holds a California salesperson license and is a LEED Accredited Professional.  He believes in giving back to the community by sharing his knowledge about sustainable construction and participating in community service events such as Habitat for Humanity’s Rebuilding Together. In his spare time he enjoys bike riding, swimming, cooking,and spending time with his family and friends.  He is eager develop and maintain good relationships with all his past, present, and future clients and friends.  He is fluent in Cantonese and English and currently learning Mandarin.  Do not hesitate to contact him if you have any questions, he can be reached at 415-508-7108 or by email at raymond.century21@gmail.com.</p>
+          <p>A native of San Francisco who holds a Bachelor of Sciences degree in Construction Management.</p>
+            <!-- For the past few years, he has been working in the construction industry and developed good knowledge of the field. He also holds a California salesperson license and is a LEED Accredited Professional.  He believes in giving back to the community by sharing his knowledge about sustainable construction and participating in community service events such as Habitat for Humanity’s Rebuilding Together. In his spare time he enjoys bike riding, swimming, cooking,and spending time with his family and friends.  He is eager develop and maintain good relationships with all his past, present, and future clients and friends.  He is fluent in Cantonese and English and currently learning Mandarin.  Do not hesitate to contact him if you have any questions, he can be reached at 415-508-7108 or by email at raymond.century21@gmail.com. -->
           <p><button class="w3-btn-block">Contact</button></p>
         </div>
       </div>
@@ -206,35 +268,35 @@
 <div class="w3-container w3-padding-128" id="work">
   <h3 class="w3-center">OTHER RESOURCES</h3>
   <p class="w3-center w3-large">If you prefer to do your own research, below are links to resources which contain bits of information</p>
-  <p>(which we have already integrated in our site). So feel free to browse if you don't trust us...</p>
+  <p class="w3-center w3-large">(which we have already integrated in our site). So feel free to browse if you don't trust us...</p>
 
   <div class="w3-row-padding" style="margin-top:64px">
     <div class="w3-col m3">
-      <img src="static/images/crimemapping.svg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Crime Mapping">
+      <img src="static/images/crimemapping.svg" style="width:100%" onclick="location.href='http://www.crimemapping.com/map/ca/sanfrancisco'" class="w3-hover-opacity" alt="Crime Mapping">
     </div>
     <div class="w3-col m3">
-      <img src="static/images/sf.jpeg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="San Fran">
+      <img src="static/images/sf.jpeg" style="width:100%" onclick="location.href='https://dev.socrata.com/foundry/data.sfgov.org/cuks-n6tp'" class="w3-hover-opacity" alt="San Fran">
     </div>
     <div class="w3-col m3">
-      <img src="static/images/SFOD.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="SFOD">
+      <img src="static/images/SFOD.png" style="width:100%" onclick="location.href='https://data.sfgov.org/Public-Safety/Map-Crime-Incidents-from-1-Jan-2003/gxxq-x39z/data'" class="w3-hover-opacity" alt="SFOD">
     </div>
     <div class="w3-col m3">
-      <img src="static/images/spotcrime.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="SpotCrime">
+      <img src="static/images/spotcrime.png" style="width:100%" onclick="location.href='https://spotcrime.com/#14791%20Butano%20Terrace%2C%20Saratoga%2C%20CA%2095070%2C%20USA'" class="w3-hover-opacity" alt="SpotCrime">
     </div>
   </div>
 
   <div class="w3-row-padding w3-section">
     <div class="w3-col m3">
-      <img src="static/images/redfin.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="RedFin">
+      <img src="static/images/redfin.jpg" style="width:100%" onclick="location.href='https://www.redfin.com/zipcode/94306/filter/sort=lo-price,include=forsale+mlsfsbo+construction+fsbo+foreclosed+sold-3mo,viewport=37.45032:37.37983:-122.0919:-122.1597'" class="w3-hover-opacity" alt="RedFin">
     </div>
     <div class="w3-col m3">
-      <img src="static/images/Trulia.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Trulia">
+      <img src="static/images/Trulia.png" style="width:100%" onclick="location.href='https://www.trulia.com/'" class="w3-hover-opacity" alt="Trulia">
     </div>
     <div class="w3-col m3">
-      <img src="static/images/Zillow.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Zillow">
+      <img src="static/images/Zillow.jpg" style="width:100%" onclick="location.href='http://www.zillow.com/homes/for_rent/'" class="w3-hover-opacity" alt="Zillow">
     </div>
     <div class="w3-col m3">
-      <img src="static/images/sfpd.jpeg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="SFPD">
+      <img src="static/images/sfpd.jpeg" style="width:100%" onclick="location.href='http://sanfranciscopolice.org/'" class="w3-hover-opacity" alt="SFPD">
     </div>
   </div>
 </div>
@@ -276,8 +338,8 @@
 </div>
 
 <!-- Pricing Section -->
-<div class="w3-container w3-padding-128 w3-center w3-dark-grey" id="pricing">
-  <h3>Press</h3>
+<!-- <div class="w3-container w3-padding-128 w3-center w3-dark-grey" id="pricing">
+  <h3>Press</h3> -->
   <!-- <p class="w3-large">Choose a pricing plan that fits your needs.</p>
   <div class="w3-row-padding" style="margin-top:64px">
     <div class="w3-third w3-margin-bottom">
@@ -329,7 +391,7 @@
       </ul>
     </div>
   </div> -->
-</div>
+<!-- </div> -->
 
 <!-- Contact Section -->
 <div class="w3-container w3-padding-64 w3-light-grey" id="contact">

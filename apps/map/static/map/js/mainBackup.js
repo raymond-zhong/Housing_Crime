@@ -26,54 +26,28 @@ $.get("home", function(res){
   for(var i =0; i<res.length; i++){
     var x = res[i].x;
     var y = res[i].y;
-    var address = res[i].Address;
     var price = res[i].Price;
-    var bd = res[i].BD;
-    var ba = res[i].BA;
     var hlatLng = new google.maps.LatLng(x, y);
     var houseMarker = new google.maps.Marker({
       position: hlatLng,
       map: map,
       icon:'static/images/houses/house.png'
     });
-    var button = '<button class="details" id='+i+'>See the Details</button>';
-    // button.data("address", address);
-    var disc = '<h4>'+ address +'</h4>'+ button;
-    var infowindow = new google.maps.InfoWindow();
-    google.maps.event.addListener(houseMarker, 'click', (function (houseMarker,disc,infowindow) {
-      return function () {
-          infowindow.setContent(disc);
-
-
-          infowindow.open(map, houseMarker);
-      };
-    })(houseMarker, disc, infowindow));
     houseMarker.setVisible(false);
     dict["houses"].push(houseMarker);
     price = price.replace(/,/g, "");
     price = price.replace('$', "");
-
-    //  console.log(price);
-     dict['hprices'].push(parseInt(price));
-     dict["haddress"].push(address);
-     dict['hbd'].push(parseInt(bd));
-     dict['hba'].push(parseInt(ba));
+     console.log(price);
+    dict['hprices'].push(parseInt(price));
     }
-    $(document).on('click', '.details', function(){
-      $('#content').html("<div class='container'><h2>House's Info</h2><h4>Address: "+ dict['haddress'][$(this).attr("id")] +"</h4><h4>Price: $"+ dict['hprices'][$(this).attr("id")] +"</h4><h4>Beds: "+ dict['hbd'][$(this).attr("id")] +"</h4><h4>Baths: " + dict['hba'][$(this).attr('id')] + "</h4></div>");
-      console.log($(this).data('address'));
-    })
 }, "json");
 
 $.get("rent", function(res){
-  for(var j =0; j<res.length; j++)
+  for(var i =0; i<res.length; i++)
   {
-    var x = res[j].x;
-    var y = res[j].y;
-    var address = res[j].Address;
-    var price = res[j].Price;
-    var bd = res[j].BD;
-    var ba = res[j].BA;
+    var x = res[i].x;
+    var y = res[i].y;
+    var price = res[i].Price;
     var hlatLng = new google.maps.LatLng(x, y);
     // console.log(rows[i]['x'], rows[i]['y']);
     var rentMarker = new google.maps.Marker({
@@ -81,19 +55,6 @@ $.get("rent", function(res){
       map: map,
       icon:'static/images/houses/rent.png'
     });
-    var button = '<button class="rdetails" id='+j+'>See the Details</button>';
-    // button.data("address", address);
-    var disc = '<h4>'+ address +'</h4>'+ button;
-
-    var infowindow = new google.maps.InfoWindow();
-    google.maps.event.addListener(rentMarker, 'click', (function (rentMarker,disc,infowindow) {
-      return function () {
-          infowindow.setContent(disc);
-
-
-          infowindow.open(map, rentMarker);
-      };
-    })(rentMarker, disc, infowindow));
     rentMarker.setVisible(false);
     dict["rent"].push(rentMarker);
     price = price.replace(',', "");
@@ -101,14 +62,7 @@ $.get("rent", function(res){
     price = price.replace('/mo', "");
     // console.log(price);
     dict['rprices'].push(parseInt(price));
-    dict["raddress"].push(address);
-    dict['rbd'].push(parseInt(bd));
-    dict['rba'].push(parseInt(ba));
   }
-  $(document).on('click', '.rdetails', function(){
-      $('#content').html("<div class='container'><h2>Rent's Info</h2><h4>Address: "+ dict['raddress'][$(this).attr("id")] +"</h4><h4>Price: $"+ dict['rprices'][$(this).attr("id")] +"</h4><h4>Beds: "+ dict['rbd'][$(this).attr("id")] +"</h4><h4>Baths: " + dict['rba'][$(this).attr('id')] + "</h4></div>");
-      console.log(dict['rbd'][$(this).attr("id")]);
-    })
 }, "json");
 
 $.get("condo", function(res){
@@ -116,10 +70,7 @@ $.get("condo", function(res){
   {
     var x = res[i].x;
     var y = res[i].y;
-    var address = res[i].Address;
     var price = res[i].Price;
-    var bd = res[i].BD;
-    var ba = res[i].BA;
     var hlatLng = new google.maps.LatLng(x, y);
     // console.log(rows[i]['x'], rows[i]['y']);
     var condoMarker = new google.maps.Marker({
@@ -127,33 +78,13 @@ $.get("condo", function(res){
       map: map,
       icon:'static/images/houses/condo.png'
     });
-    var button = '<button class="cdetails" id='+i+'>See the Details</button>';
-    // button.data("address", address);
-    var disc = '<h4>'+ address +'</h4>'+ button;
-
-    var infowindow = new google.maps.InfoWindow();
-    google.maps.event.addListener(condoMarker, 'click', (function (condoMarker,disc,infowindow) {
-      return function () {
-          infowindow.setContent(disc);
-
-
-          infowindow.open(map, condoMarker);
-      };
-    })(condoMarker, disc, infowindow));
     condoMarker.setVisible(false);
     dict["condo"].push(condoMarker);
     price = price.replace(/,/g, "");
     price = price.replace('$', "");
     // console.log(price);
     dict['cprices'].push(parseInt(price));
-    dict["caddress"].push(address);
-    dict['cbd'].push(parseInt(bd));
-    dict['cba'].push(parseInt(ba));
   }
-  $(document).on('click', '.cdetails', function(){
-      $('#content').html("<div class='container'><h2>Condo's Info</h2><h4>Address: "+ dict['caddress'][$(this).attr("id")] +"</h4><h4>Price: $"+ dict['cprices'][$(this).attr("id")] +"</h4><h4>Beds: "+ dict['cbd'][$(this).attr("id")] +"</h4><h4>Baths: " + dict['cba'][$(this).attr('id')] + "</h4></div>");
-      console.log($(this).data('address'));
-  })
 }, "json");
   // $.get("https://data.sfgov.org/resource/cuks-n6tp.json", function(res){
   //     console.log("in function");

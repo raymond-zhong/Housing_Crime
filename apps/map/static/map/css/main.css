@@ -1,7 +1,7 @@
 {% load staticfiles %}
 html, body, #map {
   height: 100%;
-  margin: 0;
+  margin: 10px;;
 }
 
 #autocomplete {
@@ -9,8 +9,11 @@ html, body, #map {
   height: 25px;
 }
 #map{
-  width: 900px;
+  width: 65%;
   display: inline-block;
+  /*border-style: solid;
+  border-color: blue;*/
+  margin-left: 20px;
 }
 .button{
   width: 200px;
@@ -42,4 +45,117 @@ body, html {
 }
 #about{
   padding: 10px;
+}
+
+/*Crime drop down*/
+.dropbtn2 {
+    background-color: lightblue;
+    margin-left: 10px;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/*.dropbtn2:hover, .dropbtn:focus {
+    background-color: darkblue;
+}*/
+
+.dropdown2 {
+    /*position: absou;*/
+    display: inline-block;
+    vertical-align: top;
+}
+
+.dropdown-content2 {
+    /*display: none;*/
+    position: relative;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    background-color: #f9f9f9;
+    width: 150px;
+    /*overflow: auto;*/
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/*.show {display:block;}*/
+
+/*Home Type drop down */
+.dropbtn {
+    background-color: lightblue;
+    color: white;
+    padding: 16px;
+    width: 210px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/*.dropbtn:hover, .dropbtn2:focus {
+    background-color: darkblue;
+}*/
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.dropdown-content {
+    /*display: none;*/
+    position: relative;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #f9f9f9;
+    width: 210px;
+    /*overflow: auto;*/
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+/*.show {display:block;}*/
+#pad {
+/*border-style: solid;
+border-color: green;*/
+display: inline-block;
+vertical-align: top;
+}
+#work {
+/*border-style: solid;*/
+/*border-color: green;*/
+}
+#content {
+ width: 300px;
+ height: 200px;
+ position: relative;
+ margin: 8px;
+ padding: 5px;
+}
+
+/*.container {
+   vertical-align: top;
+   display: inline-block;
+   width: 640px;
+   height: 180px;
+   text-align: center;
+   border-style: solid;
+   border-radius: 25px;
+
+}*/
+#sidepanel{
+  display: inline-block;
+  /*border-style: solid;*/
+  /*border-color: red;*/
+  vertical-align: top;
+  height: 600px;
+  margin-top: 10px;
+  margin-left: 1%;
+}
+.w3-card-2{
+  height: 550px;
+}
+.w3-card-2 img{
+  height: 300px;
+  width: 250px;
 }
