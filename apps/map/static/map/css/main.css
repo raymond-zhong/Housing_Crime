@@ -9,7 +9,7 @@ html, body, #map {
   height: 25px;
 }
 #map{
-  width: 65%;
+  width: 60%;
   display: inline-block;
   /*border-style: solid;
   border-color: blue;*/
@@ -46,9 +46,8 @@ body, html {
 #about{
   padding: 10px;
 }
-
 /*Crime drop down*/
-.dropbtn2 {
+.dropbtn1 {
     background-color: lightblue;
     margin-left: 10px;
     color: white;
@@ -56,69 +55,97 @@ body, html {
     font-size: 16px;
     border: none;
     cursor: pointer;
+    display: inline;
+    display: block;
 }
 
 /*.dropbtn2:hover, .dropbtn:focus {
     background-color: darkblue;
 }*/
 
-.dropdown2 {
+.dropdown1 {
     /*position: absou;*/
-    display: inline-block;
+    display: inline;
     vertical-align: top;
+    /*border-style: solid;
+    border-color: green;*/
+}
+
+.dropdown-content1 {
+    /*display: none;*/
+    display: inline;
+    /*margin-left: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    background-color: #f9f9f9;
+    width: 10%;
+    border-style: solid;
+    border-color: green;*/*/
+    /*overflow: auto;*/
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+}
+.record {
+    display: inline-block;
+    /*border-style: solid;
+    border-color: green;*/
+    width: 51%;
+    padding: 10px;
+    vertical-align: top;
+}
+/*.show {display:block;}*/
+
+/*Home Type drop down */
+.home {
+    display: inline-block;
+    /*border-style: solid;
+    border-color: blue;*/
+    width: 45%;
+    padding: 10px;
+    vertical-align: top;
+}
+.dropbtn2 {
+    display: block;
+    background-color: lightblue;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    /*border-style: solid;
+    border-color: blue;*/
+}
+
+.dropbtn, .dropbtn2 {
+    /*background-color: darkblue;*/
+    display: inline-block;
+}
+
+.dropdown2 {
+    /*position: relative;*/
+    display: inline;
+    vertical-align: top;
+    /*border-style: solid;
+    border-color: blue;*/
 }
 
 .dropdown-content2 {
     /*display: none;*/
-    position: relative;
-    margin-left: 10px;
-    padding-left: 10px;
-    padding-top: 10px;
-    background-color: #f9f9f9;
-    width: 150px;
-    /*overflow: auto;*/
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-/*.show {display:block;}*/
-
-/*Home Type drop down */
-.dropbtn {
-    background-color: lightblue;
-    color: white;
-    padding: 16px;
-    width: 210px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-/*.dropbtn:hover, .dropbtn2:focus {
-    background-color: darkblue;
-}*/
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.dropdown-content {
-    /*display: none;*/
-    position: relative;
-    padding-left: 10px;
+    display: inline;
+    /*padding-left: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #f9f9f9;
-    width: 210px;
+    width: 15%;
+    border-style: solid;
+    border-color: blue;*/*/
     /*overflow: auto;*/
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
 }
 /*.show {display:block;}*/
 #pad {
 /*border-style: solid;
 border-color: green;*/
-display: inline-block;
+display: inline;
 vertical-align: top;
 }
 #work {
@@ -126,11 +153,13 @@ vertical-align: top;
 /*border-color: green;*/
 }
 #content {
- width: 300px;
+ width: 90%;
+ display: block;
  height: 200px;
- position: relative;
  margin: 8px;
  padding: 5px;
+ /*border-style: solid;
+ border-color: yellow;*/
 }
 
 /*.container {
@@ -151,11 +180,13 @@ vertical-align: top;
   height: 600px;
   margin-top: 10px;
   margin-left: 1%;
+  width: 35%;
+  /*border-style: solid;
+  border-color: yellow;*/
 }
 .w3-card-2{
-  height: 550px;
 }
 .w3-card-2 img{
-  height: 300px;
-  width: 250px;
+  height: 10%;
+  width: 10%;
 }

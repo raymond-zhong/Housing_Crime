@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8" />
        <title>Honest Agent</title>
-       <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
        {% load staticfiles %}
         <link rel="stylesheet" href="{% static 'map/css/main.css' %}"media="screen" title="no title"  charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+        <link rel="stylesheet" href="{% static 'map/css/w3.css' %}"media="screen" title="no title"  charset="utf-8">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDr-U2DG8cJOlAItlBSOPzVCjBKHbBUT04&libraries=places"></script>
@@ -55,6 +53,7 @@
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
   <div class="w3-display-left w3-padding-xxlarge w3-text-black">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <span class="w3-jumbo w3-hide-small">The REAL Deal.</span><br>
     <span class="w3-xxlarge w3-hide-large w3-hide-medium">The REAL Deal.</span><br>
      <!-- to help you find your information about your future home. -->
@@ -69,12 +68,12 @@
 <div id="about">
   </div>
   <div id="sidepanel">
-  <div id="pad">
   <!-- TYPE OF RECORD BUTTON -->
-  <div id="dropdown2" class = "dropdown2">
+  <div id="record" class = "record">
+  <div id="dropdown1" class = "dropdown1">
     <button class="dropbtn2">Type of record</button>
     <!-- onclick = "myFunction2()" -->
-      <div id = "myDropdown2" class="dropdown-content2">
+      <div id = "myDropdown1" class="dropdown-content1">
         <form class ="button" action="demo_form.asp" >
           <input type="checkbox" id="assault">Assault<br>
           <input type="checkbox" id="sexoffense" >Sex Offense<br>
@@ -84,12 +83,14 @@
 
       </form>
     </div>
+    </div>
   </div>
 <!-- HOME BUTTON -->
-  <div id="dropdown" class = "dropdown">
-    <button  class="dropbtn">Home Type</button>
+<div id="home" class = "home">
+  <div id="dropdown2" class = "dropdown2">
+    <button  class="dropbtn2">Home Type</button>
     <!-- onclick = "myFunction()" -->
-      <div id = "myDropdown" class="dropdown-content">
+      <div id = "myDropdown2" class="dropdown-content2">
         <form class ="button" action="demo_form.asp" >
           <input type="checkbox" id="sfhome" >Single Family Home<br>
           <input type="checkbox" id="condo" >Condos<br>
@@ -101,7 +102,8 @@
       </form>
     </div>
   </div>
-  <script>
+</div>
+  <!-- <script>
   /* When the user clicks on HOME TYPE button,toggle between hiding and showing the dropdown content */
   function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
@@ -138,9 +140,8 @@
       }
     }
   }
-  </script>
+  </script> -->
   <div id="content">
-</div>
 </div>
 </div>
   <div id="map"></div>
@@ -195,14 +196,14 @@
 <div class="w3-container w3-padding-128" id="team">
   <h3 class="w3-center">THE TEAM</h3>
   <p class="w3-center w3-large">The ones who runs this project</p>
-  <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+  <div class="w3-row-padding" style="margin-top:64px">
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-card-2">
         <img src="static/images/RP.jpg" alt="RP" style="width:100%">
         <div class="w3-container">
           <h3>Ryan Pan</h3>
           <p class="w3-opacity">Developer</p>
-          <p>University of California, Davis, Bachelor’s Degree, Computer Science</p>
+          <p>University of California, Davis</p> <p>Bachelor’s Degree, Computer Science</p>
           <p><button class="w3-btn-block">Contact</button></p>
         </div>
       </div>
@@ -220,24 +221,24 @@
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-card-2">
-        <img class="profile" src="static/images/SK1.jpg" alt="SK" style=" width:100%">
+        <img class="profile" src="static/images/SK.jpg" alt="SK" style=" width:100%">
         <div class="w3-container">
           <h3>Soumya Kedlaya</h3>
           <p class="w3-opacity">Developer</p>
-          <p>Was once a doctor, now a developer</p></br>
+          <p>Was once a doctor, now a developer.</p></br>
           <p><button class="w3-btn-block">Contact</button></p>
         </div>
       </div>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-card-2">
-        <img class="profile" src='static/images/RZ1.jpg' alt="RZ" style="width:100%">
+        <img class="profile" src='static/images/RZ.jpg' alt="RZ" style="width:100%">
         <div class="w3-container">
           <h3>Raymond Zhong</h3>
-          <p class="w3-opacity">Developer</p>
-          <p>A native of San Francisco who holds a Bachelor of Sciences degree in Construction Management.</p>
-            <!-- For the past few years, he has been working in the construction industry and developed good knowledge of the field. He also holds a California salesperson license and is a LEED Accredited Professional.  He believes in giving back to the community by sharing his knowledge about sustainable construction and participating in community service events such as Habitat for Humanity’s Rebuilding Together. In his spare time he enjoys bike riding, swimming, cooking,and spending time with his family and friends.  He is eager develop and maintain good relationships with all his past, present, and future clients and friends.  He is fluent in Cantonese and English and currently learning Mandarin.  Do not hesitate to contact him if you have any questions, he can be reached at 415-508-7108 or by email at raymond.century21@gmail.com. -->
-          <p><button class="w3-btn-block">Contact</button></p>
+          <p class="w3-opacity">Software Developer</p>
+          <p>A native of San Francisco computer software engineer who holds a Bachelor of Sciences degree in Construction Management.</p>
+             Raymond  also holds a California salesperson license and is a LEED Accredited Professional.  He believes in giving back to the community by sharing his knowledge about sustainable construction and participating in community service events such as Habitat for Humanity’s Rebuilding Together. In his spare time he enjoys coding, investing in real estate, and spending time with his family and friends. He is fluent in Cantonese and English and currently learning Mandarin.
+          <p><button class="w3-btn-block"><a href="mailto:raymond.century21@gmail.com">Contact</a></button></p>
         </div>
       </div>
     </div>
@@ -275,28 +276,28 @@
       <img src="static/images/crimemapping.svg" style="width:100%" onclick="location.href='http://www.crimemapping.com/map/ca/sanfrancisco'" class="w3-hover-opacity" alt="Crime Mapping">
     </div>
     <div class="w3-col m3">
-      <img src="static/images/sf.jpeg" style="width:100%" onclick="location.href='https://dev.socrata.com/foundry/data.sfgov.org/cuks-n6tp'" class="w3-hover-opacity" alt="San Fran">
+      <img src="static/images/sf.jpeg" style="width:55%" onclick="location.href='https://dev.socrata.com/foundry/data.sfgov.org/cuks-n6tp'" class="w3-hover-opacity" alt="San Fran">
     </div>
     <div class="w3-col m3">
-      <img src="static/images/SFOD.png" style="width:100%" onclick="location.href='https://data.sfgov.org/Public-Safety/Map-Crime-Incidents-from-1-Jan-2003/gxxq-x39z/data'" class="w3-hover-opacity" alt="SFOD">
+      <img src="static/images/SFOD.png" style="width:55%" onclick="location.href='https://data.sfgov.org/Public-Safety/Map-Crime-Incidents-from-1-Jan-2003/gxxq-x39z/data'" class="w3-hover-opacity" alt="SFOD">
     </div>
     <div class="w3-col m3">
-      <img src="static/images/spotcrime.png" style="width:100%" onclick="location.href='https://spotcrime.com/#14791%20Butano%20Terrace%2C%20Saratoga%2C%20CA%2095070%2C%20USA'" class="w3-hover-opacity" alt="SpotCrime">
+      <img src="static/images/spotcrime.png" style="width:55%" onclick="location.href='https://spotcrime.com/#14791%20Butano%20Terrace%2C%20Saratoga%2C%20CA%2095070%2C%20USA'" class="w3-hover-opacity" alt="SpotCrime">
     </div>
   </div>
 
   <div class="w3-row-padding w3-section">
     <div class="w3-col m3">
-      <img src="static/images/redfin.jpg" style="width:100%" onclick="location.href='https://www.redfin.com/zipcode/94306/filter/sort=lo-price,include=forsale+mlsfsbo+construction+fsbo+foreclosed+sold-3mo,viewport=37.45032:37.37983:-122.0919:-122.1597'" class="w3-hover-opacity" alt="RedFin">
+      <img src="static/images/redfin.jpg" style="width:55%" onclick="location.href='https://www.redfin.com/zipcode/94306/filter/sort=lo-price,include=forsale+mlsfsbo+construction+fsbo+foreclosed+sold-3mo,viewport=37.45032:37.37983:-122.0919:-122.1597'" class="w3-hover-opacity" alt="RedFin">
     </div>
     <div class="w3-col m3">
-      <img src="static/images/Trulia.png" style="width:100%" onclick="location.href='https://www.trulia.com/'" class="w3-hover-opacity" alt="Trulia">
+      <img src="static/images/Trulia.png" style="width:55%" onclick="location.href='https://www.trulia.com/'" class="w3-hover-opacity" alt="Trulia">
     </div>
     <div class="w3-col m3">
-      <img src="static/images/Zillow.jpg" style="width:100%" onclick="location.href='http://www.zillow.com/homes/for_rent/'" class="w3-hover-opacity" alt="Zillow">
+      <img src="static/images/Zillow.jpg" style="width:55%" onclick="location.href='http://www.zillow.com/homes/for_rent/'" class="w3-hover-opacity" alt="Zillow">
     </div>
     <div class="w3-col m3">
-      <img src="static/images/sfpd.jpeg" style="width:100%" onclick="location.href='http://sanfranciscopolice.org/'" class="w3-hover-opacity" alt="SFPD">
+      <img src="static/images/sfpd.jpeg" style="width:55%" onclick="location.href='http://sanfranciscopolice.org/'" class="w3-hover-opacity" alt="SFPD">
     </div>
   </div>
 </div>
@@ -401,7 +402,7 @@
     <div class="w3-half">
       <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> San Francisco, California, USA</p>
       <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: 415.508.7108</p>
-      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: Support@HonestAgent.com</p>
+      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: Raymond.Century21@gmail.com</p>
       <br>
       <input class="w3-input w3-border" type="text" placeholder="Name">
       <input class="w3-input w3-border w3-section" type="text" placeholder="Email">
@@ -428,7 +429,7 @@
     <a href="http://www.linkedin.com" class="w3-hover-text-indigo"><i class="fa fa-linkedin"></i></a>
     <a href="#home" class="w3-hover-text-red" title="Go to top"><i class="fa fa-arrow-up"></i></a>
   </div>
-  <p>Powered by <a href="www.codingdojo.com" title="W3.CSS" target="_blank" class="w3-hover-text-green">Coding Dojo</a></p>
+  <p>Powered by <a href="" title="W3.CSS" target="_blank" class="w3-hover-text-green">Honest Agent</a></p>
 </footer>
   </body>
 </html>
