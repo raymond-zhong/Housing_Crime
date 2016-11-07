@@ -1,11 +1,11 @@
-<!doctype html>
+  v ggg<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
        <title>Honest Agent</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
        {% load staticfiles %}
-        <link rel="stylesheet" href="{% static 'map/css/main2.css' %}"media="screen" title="no title"  charset="utf-8">
+        <link rel="stylesheet" href="{% static 'map/css/main3.css' %}"media="screen" title="no title"  charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{% static 'map/css/w3.css' %}"media="screen" title="no title"  charset="utf-8">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -53,11 +53,12 @@
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
   <div class="w3-display-left w3-padding-xxlarge w3-text-black">
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div id= "title">
     <span class="w3-jumbo w3-hide-small">The REAL Deal.</span><br>
     <span class="w3-xxlarge w3-hide-large w3-hide-medium">The REAL Deal.</span><br>
      <!-- to help you find your information about your future home. -->
     <p><span class="w3-xlarge">We can provide you with the information that your agent won't.</span></p>
+  </div>
     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
     </fb:login-button>
     <div id="status"></div>
@@ -184,7 +185,8 @@
     <div class="w3-col m6">
       <h3>One step at a time, all in one place</h3>
       <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p> -->
-      <p><a href="#work" class="w3-btn">Click here to view other related sites that have information BUT in many different places... </a></p>
+      <p><a href="#work" class="w3-btn">Click here to view other related sites.</a></p>
+       <!-- that have information BUT in many different places...  -->
     </div>
     <!-- <div class="w3-col m6">
       <img class="w3-image w3-round-large" src="/w3images/phone_buildings.jpg" alt="Buildings" width="700" height="394"> -->
@@ -201,20 +203,25 @@
       <div class="w3-card-2">
         <img src="static/images/RP.jpg" alt="RP" style="width:100%">
         <div class="w3-container">
+          <div class="inside">
           <h3>Ryan Pan</h3>
           <p class="w3-opacity">Developer</p>
           <p>University of California, Davis</p> <p>Bachelor’s Degree, Computer Science</p>
+        </div>
           <p><button class="w3-btn-block">Contact</button></p>
         </div>
       </div>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-card-2">
+
         <img class="profile" src="static/images/VP.jpg" alt="VP" style="width:100%">
         <div class="w3-container">
+          <div class="inside">
           <h3>Victor Pak</h3>
           <p class="w3-opacity">Developer</p>
-          <p>A NICE GUY!</p></br>
+          <p>A NICE GUY!</p>
+        </div>
           <p><button class="w3-btn-block">Contact</button></p>
         </div>
       </div>
@@ -223,9 +230,11 @@
       <div class="w3-card-2">
         <img class="profile" src="static/images/SK5.jpg" alt="SK" style=" width:100%">
         <div class="w3-container">
+          <div class="inside">
           <h3>Soumya Kedlaya</h3>
           <p class="w3-opacity">Developer</p>
-          <p>Was once a doctor, now a developer.</p></br>
+          <p>Was once a doctor, now a developer.</p>
+        </div>
           <p><button class="w3-btn-block">Contact</button></p>
         </div>
       </div>
@@ -234,12 +243,14 @@
       <div class="w3-card-2">
         <img class="profile" src='static/images/RZ5.jpg' alt="RZ" style="width:100%">
         <div class="w3-container">
+          <div class="inside">
           <h3>Raymond Zhong</h3>
           <p class="w3-opacity">Software Developer</p>
           <p>A native of San Francisco computer software engineer who holds a Bachelor of Sciences degree in Construction Management.</p>
              Raymond  also holds a California salesperson license and is a LEED Accredited Professional.  He believes in giving back to the community by sharing his knowledge about sustainable construction and participating in community service events such as Habitat for Humanity’s Rebuilding Together. In his spare time he enjoys coding, investing in real estate, and spending time with his family and friends. He is fluent in Cantonese and English and currently learning Mandarin.
-          <p><button class="w3-btn-block"><a href="mailto:raymond.century21@gmail.com">Contact</a></button></p>
+           </div><p><button class="w3-btn-block"><a href="mailto:raymond.century21@gmail.com">Contact</a></button></p>
         </div>
+
       </div>
     </div>
   </div>
@@ -399,11 +410,12 @@
   <h3 class="w3-center">Contact</h3>
   <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
   <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-half">
-      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> San Francisco, California, USA</p>
-      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: 415.508.7108</p>
-      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: Raymond.Century21@gmail.com</p>
+    <div class="w3-center">
+      <p><i class="fa fa-map-marker fa-fw w3-xxlarge"></i> San Francisco, California, USA</p>
+      <p><i class="fa fa-phone fa-fw w3-xxlarge"></i> Phone: 415.508.7108</p>
+      <p><i class="fa fa-envelope fa-fw w3-xxlarge"> </i> Email: Raymond.Century21@gmail.com</p>
       <br>
+      <!-- <div class="w3-half"> -->
       <input class="w3-input w3-border" type="text" placeholder="Name">
       <input class="w3-input w3-border w3-section" type="text" placeholder="Email">
       <input class="w3-input w3-border w3-section" type="text" placeholder="Subject">
@@ -411,11 +423,12 @@
       <button class="w3-btn w3-section">
         <a href="mailto:raymond.century21@gmail.com"><i class="fa fa-paper-plane"></i> SEND MESSAGE
       </button></a>
-    </div>
-    <div class="w3-half">
-      <!-- Add Google Maps -->
-      <div id="googleMap" class="w3-greyscale-max" style="width:100%;height:510px;"></div>
-    </div>
+    <!-- </div> -->
+</div>
+    <!-- <div class="w3-half">
+      Add Google Maps -->
+        <!-- <div id="map" class="w3-greyscale-max" style="width:100%;height:510px;"></div>
+    </div> -->
   </div>
 </div>
 
@@ -429,7 +442,7 @@
     <a href="http://www.linkedin.com" class="w3-hover-text-indigo"><i class="fa fa-linkedin"></i></a>
     <a href="#home" class="w3-hover-text-red" title="Go to top"><i class="fa fa-arrow-up"></i></a>
   </div>
-  <p>Powered by <a href="" title="W3.CSS" target="_blank" class="w3-hover-text-green">Honest Agent</a></p>
+  <p>Powered by <a href="" title="HA.CSS" target="_blank" class="w3-hover-text-green">Honest Agent</a></p>
 </footer>
   </body>
 </html>

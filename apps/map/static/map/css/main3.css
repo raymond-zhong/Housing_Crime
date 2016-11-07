@@ -9,15 +9,15 @@ html, body, #map {
   height: 25px;
 }
 #map{
-  width: 60%;
+  width:75%;
   display: inline-block;
   /*border-style: solid;
   border-color: blue;*/
   margin-left: 20px;
 }
 .button{
-  width: 200px;
-  display: inline-block;
+  /*min-width: 200 px;*/
+  display: block;
   vertical-align: top;
 }
 h1{
@@ -37,12 +37,22 @@ body, html {
     background-size: cover;
     background-image: url("hs.jpeg");
     min-height: 100%;
+    /*opacity:0.7;*/
+    /*z-index:-1;*/
 }
 .w3-navbar li a {
     padding: 16px;
     float: left;
     font-size: 1.25em;
 }
+
+#title {
+  /*background-color:white;*/
+    /*z-index:0;*/
+    /*opacity:0.1;*/
+    text-shadow: 0px 1px 1px #000;
+    /*font-weight: bolder;*/
+ }
 #about{
   padding: 10px;
 }
@@ -55,7 +65,6 @@ body, html {
     font-size: 16px;
     border: none;
     cursor: pointer;
-    display: inline;
     display: block;
 }
 
@@ -65,7 +74,7 @@ body, html {
 
 .dropdown1 {
     /*position: absou;*/
-    display: inline;
+    display: block;
     vertical-align: top;
     /*border-style: solid;
     border-color: green;*/
@@ -73,7 +82,7 @@ body, html {
 
 .dropdown-content1 {
     /*display: none;*/
-    display: inline;
+    display: inline-block;
     /*margin-left: 10px;
     padding-left: 10px;
     padding-top: 10px;
@@ -85,10 +94,10 @@ body, html {
     /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
 }
 .record {
-    display: inline-block;
+    display: block;
     /*border-style: solid;
     border-color: green;*/
-    width: 51%;
+    /*width: 51%;*/
     padding: 10px;
     vertical-align: top;
 }
@@ -96,10 +105,10 @@ body, html {
 
 /*Home Type drop down */
 .home {
-    display: inline-block;
+    display: block;
     /*border-style: solid;
     border-color: blue;*/
-    width: 45%;
+    /*width: 45%;*/
     padding: 10px;
     vertical-align: top;
 }
@@ -117,12 +126,12 @@ body, html {
 
 .dropbtn, .dropbtn2 {
     /*background-color: darkblue;*/
-    display: inline-block;
+    /*display: inline-block;*/
 }
 
 .dropdown2 {
     /*position: relative;*/
-    display: inline;
+    /*display: inline;*/
     vertical-align: top;
     /*border-style: solid;
     border-color: blue;*/
@@ -130,14 +139,14 @@ body, html {
 
 .dropdown-content2 {
     /*display: none;*/
-    display: inline;
+    display: block;
     /*padding-left: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: #f9f9f9;
-    width: 15%;
-    border-style: solid;
-    border-color: blue;*/*/
+    background-color: #f9f9f9;*/
+    width: 200px;
+    /*border-style: solid;*/
+    /*border-color: blue;*/
     /*overflow: auto;*/
     /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
 }
@@ -153,40 +162,51 @@ vertical-align: top;
 /*border-color: green;*/
 }
 #content {
- width: 90%;
  display: block;
+ width: 200px;
  height: 200px;
  margin: 8px;
  padding: 5px;
+
  /*border-style: solid;
  border-color: yellow;*/
 }
 
-/*.container {
+.container h4{
    vertical-align: top;
    display: inline-block;
-   width: 640px;
-   height: 180px;
-   text-align: center;
-   border-style: solid;
-   border-radius: 25px;
+   /*width: 640px;*/
+   height: 180px
+   /*text-align: center;
+   border-style: solid;*/
+   /*border-radius: 25px;*/
+  font-size: 98%;
 
-}*/
+}
 #sidepanel{
   display: inline-block;
   /*border-style: solid;*/
   /*border-color: red;*/
   vertical-align: top;
-  height: 600px;
+  /*height: 600px;*/
   margin-top: 10px;
   margin-left: 1%;
-  width: 35%;
+  width: 200px;
+  /*width: 20%;*/
   /*border-style: solid;
   border-color: yellow;*/
 }
-.w3-card-2{
+.inside{
+  min-height: 600px;
 }
-.w3-card-2 img{
+/*.w3-card-2{
+  min-height: 950px;
+}*/
+.w3-container{
+}
+.w3-btn-block{
+}
+/*.w3-card-2 img{
   height: 10%;
   width: 10%;
-}
+}*/
